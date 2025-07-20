@@ -1,38 +1,48 @@
 # Vision-Language-Guided-Embodied-Navigation-in-Habitat-2.0-with-LLaVA
 This project uses Habitat 2.0 and LLaVA to enable an agent to navigate 3D scenes by comparing images and following vision-language-based commands. 
 Vision-Language Navigation Agent in Habitat 2.0
-This project demonstrates an autonomous navigation agent inside a photorealistic 3D environment using Facebook AI's Habitat-Sim and the ReplicaCAD Baked Lighting dataset. It integrates the LLaVA vision-language model to interpret visual goals and generate movement commands within the simulated space.
 
-By comparing the agent’s current view with a target view, the system uses LLaVA to generate commands like forward, left, right, or backward. These are executed in real time using Habitat’s viewer, enabling vision-guided embodied navigation.
 
-Key Components
-Habitat-Sim (https://github.com/facebookresearch/habitat-sim)
+# Vision-Language Navigation with Habitat 2.0 and LLaVA
 
-ReplicaCAD Baked Lighting dataset
+This project integrates the Habitat 2.0 simulator with the LLaVA vision-language model to enable an agent to navigate 3D indoor environments. The agent compares its current view to a goal image, and LLaVA generates movement commands (forward, left, right, backward) based on visual reasoning.
 
-LLaVA (Large Language and Vision Assistant)
+## 🔧 Features
 
-OpenCV for visual feedback
+- Embodied navigation using ReplicaCAD Baked Lighting scenes
+- Vision-language reasoning via LLaVA API
+- Automated command execution using xdotool and OpenCV
+- Real-time screenshot capture and navigation loop
 
-xdotool and import for keyboard and screen automation
+## 🧩 Components
 
-What It Does
-Launches a Habitat interactive simulation
+- viewer.py – Modified Habitat interactive viewer
+- test_Script.py – Main control loop with LLaVA integration
+- LLaVA model/API – Vision-language command generation
+- Habitat-Sim – 3D simulation environment
 
-Captures and displays the agent’s current and goal views
+## 💻 Requirements
 
-Uses LLaVA to infer movement direction from image comparison
+- Linux OS with GUI
+- Python 3.8+
+- Habitat-Sim (https://github.com/facebookresearch/habitat-sim)
+- LLaVA model/API running locally
+- xdotool, wmctrl, import (for automation)
 
-Executes movement commands in real time using system-level automation.
+## 🚀 How It Works
 
-Requirements
-Linux environment with GUI
+1. Launch viewer.py to load a Habitat scene.
+2. Capture current and goal images.
+3. Send both images to LLaVA for a movement decision.
+4. Simulate the keypress using xdotool.
+5. Repeat until the goal is reached.
 
-Python 3.8+
+## 📜 License
 
-LLaVA API running locally
+This project builds on open-source components and is intended for research and educational use.
 
-Habitat-Sim installed and configured
+## 🙏 Acknowledgments
 
-Acknowledgments
-This project builds on the outstanding open-source work from Facebook AI Research (FAIR) and the LLaVA team.
+- Facebook AI Research for Habitat-Sim  
+- LLaVA team for their vision-language model  
+- ReplicaCAD dataset for realistic indoor scenes
